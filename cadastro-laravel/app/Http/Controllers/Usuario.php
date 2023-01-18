@@ -2,15 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Usuario as UsuarioModel;
 use Illuminate\Http\Request;
+// use Illuminate\Support\Facades\Hash;
 
 class Usuario extends Controller
 {
     public function cadastrar(){
-        echo 10;
+        // dd(Hash::make('123'), md5('123'), sha1('123'));
+        
+        return view('usuario.cadastro');
     }
 
     public function salvar(Request $request){
-        dd($request->all());
+        $request->validate([
+            "nome" => "required",
+            "email" => "required|email",
+            "senha" => "min:5"
+        ]);
+
+        UsuarioModel::cadastrar($request);
+
+        return view('usuario.sucesso');
+        
+        // dd($request->all());
     }
 }
