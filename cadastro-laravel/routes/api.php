@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Models\Usuario as UsuarioModel;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('v1')->group(function(){
     Route::get('lista', function(){
-        return ["a", "b", "v"];
+        return UsuarioModel::listar(10);
     });
 
     Route::post('cadastra', function(){
