@@ -24,7 +24,5 @@ Route::prefix('v1')->group(function(){
         return UsuarioModel::listar(10);
     });
 
-    Route::post('cadastra', function(){
-        echo "implemetar";
-    });
+    Route::post('cadastra', 'Controllers\API\Usuario@salvar');
 });

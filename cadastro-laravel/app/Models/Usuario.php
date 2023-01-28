@@ -22,10 +22,10 @@ class Usuario extends Model
             "senha",
             "data_cadastro"
         ])
-        ->limit($limite)
-        ->get();
+        ->limit($limite);
+        return $sql->get();
 
-        dd($sql->toSql());
+        // dd($sql->toSql());
     }
 
     public static function cadastrar(Request $request){        
