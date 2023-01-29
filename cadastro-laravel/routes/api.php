@@ -3,6 +3,10 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Usuario as UsuarioModel;
+use App\Http\Controllers\API\Usuario;
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -24,5 +28,6 @@ Route::prefix('v1')->group(function(){
         return UsuarioModel::listar(10);
     });
 
-    Route::post('cadastra', 'Controllers\API\Usuario@salvar');
+    // Route::post('cadastra', 'API\Usuario@salvar'); //Está é uma forma que não funcionou provavelmente está ultrapassada abaixo está uma soolução que encontrei na internet:
+    Route::post('cadastra',[Usuario::class, 'salvar']);
 });
