@@ -14,4 +14,13 @@ class Usuario extends Controller{
             return response("ok", 409);
         }
     }
+    public function editar(Request $request){
+        //Exercício: Implementar edição
+        
+        // if(UsuarioModel::cadastrar($request)){
+        //     return response("ok", 201);
+        // }else{
+        //     return response("ok", 409);
+        // }
+    }
 }
