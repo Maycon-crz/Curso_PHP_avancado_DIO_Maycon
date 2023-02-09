@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+
+{% block topo %}
+    <div class="topo">
+    <img src="{{ asset('img/foto_perfil_desenho.PNG') }}"
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+{% endblock %}
+
+{% block title %}Cadastro de uusuários{% endblock %}
+
+{% block body %}
+    <p class="msgSucesso"><strong>{{ fulano }}</strong>, Cadastrado com sucesso!</p>
+    <a href="{{ url('web_usuario_index') }}">Voltar</a>
+{% endblock %}
