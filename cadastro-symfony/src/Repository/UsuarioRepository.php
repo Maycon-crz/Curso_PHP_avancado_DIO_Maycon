@@ -21,23 +21,29 @@ class UsuarioRepository extends ServiceEntityRepository
         parent::__construct($registry, Usuario::class);
     }
 
-    public function save(Usuario $entity, bool $flush = false): void
-    {
-        $this->getEntityManager()->persist($entity);
-
-        if ($flush) {
-            $this->getEntityManager()->flush();
-        }
+    public function pegarTodos(){
+        return $this->createQueryBuilder('u')
+        ->getQuery()
+        ->getArrayResult();
     }
 
-    public function remove(Usuario $entity, bool $flush = false): void
-    {
-        $this->getEntityManager()->remove($entity);
+    // public function save(Usuario $entity, bool $flush = false): void
+    // {
+    //     $this->getEntityManager()->persist($entity);
 
-        if ($flush) {
-            $this->getEntityManager()->flush();
-        }
-    }
+    //     if ($flush) {
+    //         $this->getEntityManager()->flush();
+    //     }
+    // }
+
+    // public function remove(Usuario $entity, bool $flush = false): void
+    // {
+    //     $this->getEntityManager()->remove($entity);
+
+    //     if ($flush) {
+    //         $this->getEntityManager()->flush();
+    //     }
+    // }
 
 //    /**
 //     * @return Usuario[] Returns an array of Usuario objects
